@@ -1,9 +1,13 @@
+import Model.ModelBuku;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
-    public static void main(String[] args) {
+
+    static void menu_utama(){
         Scanner input = new Scanner(System.in);
         System.out.println("PROGRAM PERPUSATAKAAN SEDERHANA");
         System.out.println();
@@ -80,6 +84,17 @@ public class Main {
                 default:
                     System.out.println("pilihan tidak ada, silahkan masukkan pilihan lagi");
             }
+        }
+    }
+    public static void main(String[] args) {
+//        menu_utama();
+        ModelBuku obj = new ModelBuku();
+        obj.insertBook("laskar pelangi - 1", "andrea hirata");
+        obj.insertBook("laskar pelangi - 2", "andrea hirata");
+        for (int i = 0;i<obj.viewBooks().size();i++){
+            System.out.println("kode buku "+obj.viewBooks().get(i).kode_buku);
+            System.out.println("judul buku "+obj.viewBooks().get(i).judul_buku);
+            System.out.println("pengarang buku "+obj.viewBooks().get(i).pengarang);
         }
     }
 }
